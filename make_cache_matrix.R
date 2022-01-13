@@ -3,16 +3,16 @@
 make_cache_matrix <- function(x = matrix()) 
 {
     inv <- NULL
-    set <- function(y)
+    set <- function(y)               #sets matrix
     {
         x <<- y
         inv <<- NULL
     }
-    get <- function() 
+    get <- function()               #gets matrix
         {x}                         
-    set_inv <- function(inverse)    
+    set_inv <- function(inverse)    #sets inverse
         {inv <<- inverse}               
-    get_inv <- function()           
+    get_inv <- function()           #gets inverse 
         {inv}
     list(set = set, get = get, set_inv = set_inv, get_inv = get_inv)
 }
@@ -21,7 +21,7 @@ make_cache_matrix <- function(x = matrix())
 
 cache_solve <- function(x, ...)
 {
-    inv <- x$get_inv()
+    inv <- x$get_inv()  
     if(!is.null(inv))  # this skips calculation of `inv` has already been calculated
     {
         message("getting cached data")
